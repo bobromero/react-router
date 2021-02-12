@@ -6,11 +6,19 @@ import { BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-rou
 
 //pages
 import MainPage from './pages'
+import MissingPage from './pages/pageNotFound'
+import UsersPage from './pages/users';
 
 function App() {
   return (
     <Router>
-      <Route path="/" component={MainPage} />
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/users" component={UsersPage}/>
+        <Route exact path="/404" component={MissingPage} />
+        <Redirect to="/404"/>
+      </Switch>
+        
 
     </Router>
   );
